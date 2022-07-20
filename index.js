@@ -30,7 +30,7 @@ function profGenie() {
       if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data)) {
           return true;
       } else {
-          return 'Not a valid email address. Please enter your email again.';
+          return 'Not a valid email address. Please enter in the email again.';
       }
     },
   }, {
