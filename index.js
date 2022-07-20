@@ -56,26 +56,21 @@ function init(profGenie) {
   profGenie()
     .then((data) => {
       console.log(data)
-      if (!fs.existsSync(profGenie)) {
-          fs.mkdirSync(profGenie);
-          console.log('Directory created');
-          fs.writeFileSync('../README/README.md', generateMarkdown(data), (error) => {
+          fs.writeFileSync('../dist/index.html', profGenie(data), (error) => {
             if (error) {
               throw error;
             } else {
               console.log('File created');
             };
           });
-      } else {
-        fs.writeFileSync('../README/README.md', generateMarkdown(data), (error) => {
+          fs.writeFileSync('../dist/style.css', profGenie(data), (error) => {
             if (error) {
                 throw error;
             } else {
                 console.log('File created');
             }
         });
-      }
-    });
-  }
+      });
+    };
 
 init('README', 'index.html');
