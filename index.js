@@ -23,26 +23,68 @@ function profGenie() {
     .then(answer => {
       switch (answer.employeeType) {
         case 'Manager':
-          managerPrompts(Manager);
+          managerPrompts(manager);
+          break;
+        case 'engineer':
+          engineerPrompts(engineer);
+          break;
+        case 'intern':
+          internPrompts(intern);
           break;
       }
-    });
+    })
+  ]);
+};
 
   function managerPrompts() {
       return inquirer.prompt([
         {
           type: "input",
-          name: "employeeType",
-          message: "What type of employee would you like to add to the team?", 
-          choices: [Manager, Engineer, Intern],
+          name: "mngrOfficeNum",
+          message: "What is the office Number of the Manager?",
           validate: validateInput,
-        }
+        }, {
+          type: "list",
+          name: "addEmployee",
+          message: "Would you like to add another employee?",
+          validate: validateInput,
+        },
         
       ]) .then((data)=>{
+        if(this.addEmployee === "Yes") {
+          profGenie();
+        } else {
         generateManagerCard(data);
+        };
       })
-
-    
+  };
+  function engineerPrompts() {
+      return inquirer.prompt([
+        {
+            type: "input",
+            name: "mngrOfficeNum",
+            message: "What is the office Number of the Manager?",
+            validate: validateInput,
+          },
+        
+      ]) .then((data)=>{
+        generateEngineerCard(data);
+      })
+  };
+  function internPrompts() {
+      return inquirer.prompt([
+        {
+            type: "input",
+            name: "mngrOfficeNum",
+            message: "What is the office Number of the Manager?",
+            validate: validateInput,
+          },
+        
+      ]) .then((data)=>{
+        generateInternCard(data);
+      })
+  };
+  // }  
   //   type: "input",
   //   name: "name",
   //   message: "What is the name of the Employee?", 
@@ -63,12 +105,7 @@ function profGenie() {
   //         return 'Not a valid email address. Please enter in the email again.';
   //     }
   //   },
-  // }, {
-  //   type: "input",
-  //   name: "mngrOfficeNum",
-  //   message: "What is the office Number of the Manager?",
-  //   validate: validateInput,
-  // }, {
+  // },  {
   //   type: "input",
   //   name: "engrGitHub",
   //   message: "Please provide the gitHub for the Engineer?",
@@ -78,14 +115,9 @@ function profGenie() {
   //   name: "intrnSchool",
   //   message: "What is the school that the intern is attending?",
   //   validate: validateInput,
-  // }, {
-  //   type: "list",
-  //   name: "role",
-  //   message: "Would you like to add another role?",
-  //   validate: validateInput,
   // },
 // ]);
-};
+
 
 function init(profGenie) {
   profGenie()

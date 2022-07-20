@@ -1,14 +1,16 @@
 const Employee = require("../lib/employee");
 
-function generateEngineerCard () {
-  // if no engineers then do nothing
+function generateEngineerCard ({role, name, id, email, engrGitHub}) {
+  // fucntion to check if any engineer from prompts and if not then do nothing
+  const manager = new Manager(role, name, id, email, engrGitHub)
 }
-function generateManagerCard ({name,id,email,mngrOfficeNum}) {
-  // if no engineers then do nothing
-  const manager = new Manager(name,id,email,mngrOfficeNum)
+function generateManagerCard ({role, name, id, email, mngrOfficeNum}) {
+  // fucntion to check if any managers from prompts and if not then do nothing
+  const manager = new Manager(role, name, id, email, mngrOfficeNum)
 }
-function generateInternCard () {
-  // if no engineers then do nothing
+function generateInternCard ({role, name, id, email, intrnSchool}) {
+  // fucntion to check if any interns from prompts and if not then do nothing
+  const intern = new intern(role, name, id, email, intrnSchool)
 }
 
 const genieProfileHTML = ({name, id, email, mngrOfficeNum, engrGitHub, intrnSchool }) =>
