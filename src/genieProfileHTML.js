@@ -1,6 +1,17 @@
+const Employee = require("../lib/employee");
 
+function generateEngineerCard () {
+  // if no engineers then do nothing
+}
+function generateManagerCard ({name,id,email,mngrOfficeNum}) {
+  // if no engineers then do nothing
+  const manager = new Manager(name,id,email,mngrOfficeNum)
+}
+function generateInternCard () {
+  // if no engineers then do nothing
+}
 
-const genieProfileHTML = ({ name, location, github, linkedin }) =>
+const genieProfileHTML = ({name, id, email, mngrOfficeNum, engrGitHub, intrnSchool }) =>
   `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,28 +21,21 @@ const genieProfileHTML = ({ name, location, github, linkedin }) =>
   <title>Document</title>
 </head>
 <body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Hi! My name is ${name}</h1>
-    <p class="lead">I am from ${location}.</p>
-    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-    <ul class="list-group">
-      <li class="list-group-item">My GitHub username is ${github}</li>
-      <li class="list-group-item">LinkedIn: ${linkedin}</li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>`;
-
-<div id="forecast-container" class="card my-3">
-  <h5 class="card-header" style="background-color: rgb(1, 96, 139); color: white;">5 Day Forecast:</h5>
-  <div class="card-body">
-    <div class="card-deck">
-      <div class="card p-2 m-2" style="background-color: rgb(221, 245, 250);">
-        <h6 class="card-title">21/07/2022</h6>
-        <img src="" style="height: 50px; width: 50px;"></img>
+  <div id="forecast-container" class="card my-3">
+    <h5 class="card-header" style="background-color: rgb(1, 96, 139); color: white;">5 Day Forecast:</h5>
+    <div class="card-body">
+      <div class="card-deck">
+        <div class="card p-2 m-2" style="background-color: rgb(221, 245, 250);">
+          <h6 class="card-title">${generateEngineerCard()}</h6>
+          <h6 class="card-title">${getRole}</h6>
+          <ul class="list-group">
+            <li class="list-group-item active">${Employee.id}</li>
+            <li class="list-group-item">${Employee.email}</li>
+            <li class="list-group-item">${getRole()}</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
+</body>
+</html>`;
