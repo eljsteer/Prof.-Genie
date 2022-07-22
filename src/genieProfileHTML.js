@@ -2,15 +2,15 @@ const Employee = require("../lib/employee");
 
 function generateEngineerCard ({role, name, id, email, engrGitHub}) {
   // fucntion to check if any engineer from prompts and if not then do nothing
-  const manager = new Manager(role, name, id, email, engrGitHub)
+  // const manager = new Manager(role, name, id, email, engrGitHub)
 }
 function generateManagerCard ({role, name, id, email, mngrOfficeNum}) {
   // fucntion to check if any managers from prompts and if not then do nothing
-  const manager = new Manager(role, name, id, email, mngrOfficeNum)
+  // const manager = new Manager(role, name, id, email, mngrOfficeNum)
 }
 function generateInternCard ({role, name, id, email, intrnSchool}) {
   // fucntion to check if any interns from prompts and if not then do nothing
-  const intern = new intern(role, name, id, email, intrnSchool)
+  // const intern = new intern(role, name, id, email, intrnSchool)
 }
 
 const genieProfileHTML = ({name, id, email, mngrOfficeNum, engrGitHub, intrnSchool }) =>
@@ -41,3 +41,5 @@ const genieProfileHTML = ({name, id, email, mngrOfficeNum, engrGitHub, intrnScho
   </div>
 </body>
 </html>`;
+
+module.exports = {generateEngineerCard, generateManagerCard, generateInternCard};
