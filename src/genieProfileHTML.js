@@ -3,10 +3,8 @@ const Manager = require("../lib/Manager");
 
 
 function generateEmployeeCards ({team}) {
-  // for (i = 0; i < team.length; i++) {
-  //   const team[i];
-  // };
-  for (const employee of team) {
+  for (i = 0; i < team.length; i++) {
+  // for (const employee of team) {
     // Employee Card 
     let employeeCard = document.createElement("div");
     employeeCard.classList.add("card p-2 m-2");
@@ -15,9 +13,9 @@ function generateEmployeeCards ({team}) {
     let cardHeader = document.createElement("div");
     cardHeader.classList.add("card-header");
 
-    let employeeName = document.createElement("h4")
+    let employeeName = document.createElement("h4");
     employeeName.innerText(team[i].Name);
-    let employeeRole = document.createElement("h5")
+    let employeeRole = document.createElement("h5");
     if(team[i] == "manager") {
       employeeRole.innerText(`☕ ${team[i]}`);
     }
@@ -39,7 +37,7 @@ function generateEmployeeCards ({team}) {
     employeeListOther.classList.add("list-group-item");
       //Employee ID 
     let employeeId = team[i].id;
-    employeeListID.innerText(`ID: ${employeeId}`)
+    employeeListID.innerText(`ID: ${employeeId}`);
       // Employee Email
     let employeeEmail = team[i].email;
     employeeListEmailLink = document.createElement("a");
@@ -64,12 +62,12 @@ function generateEmployeeCards ({team}) {
     employeeDetails.appendChild(employeeListID, employeeListEmail, employeeListOther)
     cardHeader.appendChild(employeeName, employeeRole);
     employeeCard.appendChild(cardHeader, employeeDetails);
-  }
+  };
 };
 
 
 
-const genieProfileHTML = ({name, id, email, mngrOfficeNum, engrGitHub, intrnSchool }) =>
+const genieProfileHTML = (generateEmployeeCards) =>
   `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,4 +87,4 @@ const genieProfileHTML = ({name, id, email, mngrOfficeNum, engrGitHub, intrnScho
 </body>
 </html>`;
 
-module.exports = {generateEngineerCard, generateManagerCard, generateInternCard};
+module.exports = genieProfileHTML();

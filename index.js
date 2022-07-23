@@ -3,8 +3,8 @@ const fs = require("fs");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const generateEmployeeCards = require("./src/genieProfileHTML");
 
-const {generateEngineerCard, generateManagerCard, generateInternCard} = require("./src/genieProfileHTML");
 let team = [];
 
 function validateInput(data) {
@@ -92,10 +92,6 @@ function profGenie() {
       });
   };
   
-// once done loop through array of employee objects and for each one call generateCard function for each role.
-// output of that into string of HTML (cards) and append each card onto the bottom of the one prior.
-// Store in cariable and add to big html structure in genieprofilehtml
-
 // Function containing Engineer Prompts 
   function engineerPrompts() {
       return inquirer.prompt([
@@ -194,32 +190,28 @@ function profGenie() {
           profGenie();
         } else if (data.addEmployee === "No") {
           generateEmployeeCards(team);
-        } else{
+          writeFile();
+        } else {
           console.log("error")
         };
       })
   };
 
-
-
   function writeFile () {
-    // .then (data) => {
-    //   console.log(data)
-    //       fs.writeFileSync('../dist/index.html', profGenie(data), (error) => {
-    //         if (error) {
-    //           throw error;
-    //         } else {
-    //           console.log('File created');
-    //         };
-    //       });
-    //   }
-    // .catch((error) => {
-    //   if (error.isTtyError) {
-    //     // Prompt couldn't be rendered in the current environment
-    //   } else {
-    //     console.log(error)
-    //   }
-    // });
+    fs.writeFileSync('../dist/index.html', profGenie(data), (error) => {
+      if (error) {
+        throw error;
+      } else {
+        console.log('File created');
+      };
+    })
+    .catch ((error) => {
+      if (error.isTtyError) {
+        // Prompt couldn't be rendered in the current environment
+      } else {
+        console.log(error)
+      };
+    });
   };
 
 // function to write html file from generateProfileHTML template.
