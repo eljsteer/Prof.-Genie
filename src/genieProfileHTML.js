@@ -1,9 +1,11 @@
 const Employee = require("../lib/employee");
-const Manager = require("../lib/Manager");
 const team = require("../index");
+const Manager = require("../lib/Manager");
+const Engineer = require("../lib/Engineer");
+const Intern = require("../lib/Intern");
 
 
-const generateManagerCard = (team) =>
+const generateManagerCard = (teamMember) =>
   `<div class="card">
     <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
       <h5 class="card-title">${team[i].Name}</h5>
@@ -17,7 +19,7 @@ const generateManagerCard = (team) =>
     </ul>
   </div>`;
 
-const generateEngineerCard = (team) =>
+const generateEngineerCard = (teamMember) =>
   `<div class="card">
     <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
       <h5 class="card-title">${team[i].Name}</h5>
@@ -31,7 +33,7 @@ const generateEngineerCard = (team) =>
     </ul>
   </div>`;
 
-const generateInternCard = (team) =>
+const generateInternCard = (teamMember) =>
   `<div class="card">
     <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
       <h5 class="card-title">${team[i].Name}</h5>
@@ -47,13 +49,13 @@ const generateInternCard = (team) =>
 
 function generateEmployeeCards (team) {
   for (i = 0; i < team.length; i++) {
-    if(team[i] == "manager") {
+    if(team[i] instanceof Manager) {
       generateManagerCard();
     }
-    else if(team[i] == "engineer") {
+    else if(team[i] instanceof Engineer) {
       generateEngineerCard();
     }
-    else if(team[i] == "intern") {
+    else if(team[i] instanceof Intern) {
       generateInternCard();
     };
   };
@@ -71,7 +73,7 @@ const genieProfileHTML = (team) =>
 <body>
   <div class="card col-sm-6 col-md-4 col-9 col-lg-3 m-3">
     <div class="card-deck">
-      ${generateEmployeeCards(team)}
+      ${generateEmployeeCards(team[i])}
     </div>
   </div>
   <script src="https://kit.fontawesome.com/f271dd3923.js" crossorigin="anonymous"></script>
