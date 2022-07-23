@@ -1,90 +1,83 @@
 const Employee = require("../lib/employee");
 const Manager = require("../lib/Manager");
+const team = require("../index");
 
 
-function generateEmployeeCards ({team}) {
+const generateManagerCard = (team) =>
+  `<div class="card">
+    <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
+      <h5 class="card-title">${team[i].Name}</h5>
+      <h6 class="card-title"><i class="fa-regular fa-mug-hot"></i>${team[i]}</h6>
+    </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">ID: ${team[i].id}</li>
+      <li class="list-group-item" href="mailto:${team[i].email}">Email: ${team[i].email}</li>
+      <li class="list-group-item">Office Number: ${team[i].mngrOfficeNum}</li>
+    </ul>
+  </div>`;
+
+const generateEngineerCard = (team) =>
+  `<div class="card">
+    <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
+      <h5 class="card-title">${team[i].Name}</h5>
+      <h6 class="card-title"><i class="fa-regular fa-laptop-code"></i> ${team[i]}</h6>
+    </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">ID: ${team[i].id}</li>
+      <li class="list-group-item" href="mailto:${team[i].email}">Email: ${team[i].email}</li>
+      <li class="list-group-item" href="https://github.com/${team[i].engrGitHub}">Github: ${team[i].engrGitHub}</li>
+    </ul>
+  </div>`;
+
+const generateInternCard = (team) =>
+  `<div class="card">
+    <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
+      <h5 class="card-title">${team[i].Name}</h5>
+      <h6 class="card-title"><i class="fa-regular fa-user-graduate"></i>${team[i]}</h6>
+    </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">ID: ${team[i].id}</li>
+      <li class="list-group-item" href="mailto:${team[i].email}">Email: ${team[i].email}</li>
+      <li class="list-group-item">School: ${team[i].intrnSchool}</li>
+    </ul>
+  </div>`;
+
+function generateEmployeeCards (team) {
   for (i = 0; i < team.length; i++) {
-  // for (const employee of team) {
-    // Employee Card 
-    let employeeCard = document.createElement("div");
-    employeeCard.classList.add("card p-2 m-2");
-
-    // Employee Card Header
-    let cardHeader = document.createElement("div");
-    cardHeader.classList.add("card-header");
-
-    let employeeName = document.createElement("h4");
-    employeeName.innerText(team[i].Name);
-    let employeeRole = document.createElement("h5");
     if(team[i] == "manager") {
-      employeeRole.innerText(`☕ ${team[i]}`);
+      generateManagerCard();
     }
     else if(team[i] == "engineer") {
-      employeeRole.innerText(`🖥️💻 ${team[i]}`);
+      generateEngineerCard();
     }
     else if(team[i] == "intern") {
-      employeeRole.innerText(`🎓🧑‍🎓 ${team[i]}`);
+      generateInternCard();
     };
-
-    // Employee Card Details 
-    let employeeDetails = document.createElement("ul");
-    employeeDetails.classList.add("list-group");
-    let employeeListID = document.createElement("li");
-    employeeListID.classList.add("list-group-item");
-    let employeeListEmail = document.createElement("li");
-    employeeListEmail.classList.add("list-group-item");
-    let employeeListOther = document.createElement("li");
-    employeeListOther.classList.add("list-group-item");
-      //Employee ID 
-    let employeeId = team[i].id;
-    employeeListID.innerText(`ID: ${employeeId}`);
-      // Employee Email
-    let employeeEmail = team[i].email;
-    employeeListEmailLink = document.createElement("a");
-    employeelistEmailLink = document.setAttribute("href", `mailto:${employeeEmail}`);
-    employeeListEmail.append(employeeListEmailLink);
-    employeeListEmail.innerText(`Email: ${employeeEmail}`);
-
-      // Employee Other Specific Detail
-    if(team[i] == "manager") {
-      employeeListOther.innerText(`Office Number: ${team[i].mngrOfficeNum}`);
-    }
-    else if(team[i] == "engineer") {
-      employeelistOtherLink = document.createElement("a")
-      employeeListOther.append(employeelistOtherLink);
-      employeelistOtherLink = document.setAttribute("href", `https://github.com/${team[i].engrGitHub}`);
-      employeeListOther.innerText(`GitHub: ${team[i].engrGitHub}`);
-    }
-    else if(team[i] == "intern") {
-      employeeListOther.innerText(`School: ${team[i].intrnSchool}`);
-    };
-
-    employeeDetails.appendChild(employeeListID, employeeListEmail, employeeListOther)
-    cardHeader.appendChild(employeeName, employeeRole);
-    employeeCard.appendChild(cardHeader, employeeDetails);
   };
 };
 
-
-
-const genieProfileHTML = (generateEmployeeCards) =>
+const genieProfileHTML = (team) =>
   `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
+  <title>Team Profile Genie</title>
 </head>
 <body>
-  <div class="container" class="card m-3">
-    <div class="card-body">
-      <div class="card-deck">
-        ${generateEmployeeCards()}
-      </div>
+  <div class="card col-sm-6 col-md-4 col-9 col-lg-3 m-3">
+    <div class="card-deck">
+      ${generateEmployeeCards(team)}
     </div>
   </div>
+  <script src="https://kit.fontawesome.com/f271dd3923.js" crossorigin="anonymous"></script>
 </body>
 </html>`;
 
-module.exports = genieProfileHTML();
+
+
+module.exports = genieProfileHTML;

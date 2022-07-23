@@ -4,6 +4,7 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const generateEmployeeCards = require("./src/genieProfileHTML");
+const genieProfileHTML = require("./src/genieProfileHTML");
 
 let team = [];
 
@@ -78,14 +79,14 @@ function profGenie() {
         },
         
       ]) .then((data)=>{
-        data.val().trim();
+        // data.val().trim();
         const manager = new Manager(data.name, data.id, data.email, data.mngrOfficeNum);
         team.push(manager);
-        console.log(team)
         if(data.addEmployee === "Yes") {
           profGenie();
         } else if (data.addEmployee === "No") {
-          generateEmployeeCards(team);
+          let dataInput = genieProfileHTML(team);
+          writeFile(dataInput);
         } else{
           console.log("error")
         };
@@ -130,14 +131,14 @@ function profGenie() {
         },
         
       ]) .then((data)=>{
-        data.val().trim();
+        // data.val().trim();
         const engineer = new Engineer(data.name, data.id, data.email, data.engrGitHub);
         team.push(engineer);
-        console.log(team)
         if(data.addEmployee === "Yes") {
           profGenie();
         } else if (data.addEmployee === "No") {
-          generateEmployeeCards(team);
+          let dataInput = genieProfileHTML(team);
+          writeFile(dataInput);
         } else{
           console.log("error")
         };
@@ -182,41 +183,36 @@ function profGenie() {
         },
         
       ]) .then((data)=>{
-        data.val().trim();
+        // data.val().trim();
         const intern = new Intern(data.name, data.id, data.email, data.intrnSchool);
         team.push(intern);
-        console.log(team)
         if(data.addEmployee === "Yes") {
           profGenie();
         } else if (data.addEmployee === "No") {
-          generateEmployeeCards(team);
-          writeFile();
+          let dataInput = genieProfileHTML(team);
+          writeFile(dataInput);
         } else {
           console.log("error")
         };
       })
   };
 
-  function writeFile () {
-    fs.writeFileSync('../dist/index.html', profGenie(data), (error) => {
+  // function to write html file from generateProfileHTML template.
+  function writeFile (dataInput) {
+    fs.writeFileSync('dist/index.html', dataInput, (error) => {
       if (error) {
         throw error;
       } else {
         console.log('File created');
       };
     })
-    .catch ((error) => {
-      if (error.isTtyError) {
-        // Prompt couldn't be rendered in the current environment
-      } else {
-        console.log(error)
-      };
-    });
   };
 
-// function to write html file from generateProfileHTML template.
+// function to initialise program to start prompts for user
   function init() {
     profGenie()
   };
 
-init("index.html", "style.css");
+init();
+
+module.exports = team
