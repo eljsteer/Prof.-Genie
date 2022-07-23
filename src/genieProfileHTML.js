@@ -5,49 +5,50 @@ const Engineer = require("../lib/Engineer");
 const Intern = require("../lib/Intern");
 
 
-const generateManagerCard = (teamMember) =>
-  `
-  <div class="card">
+const generateManagerCard = (Manager) => {
+  `<div class="card my-2">
     <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
-      <h5 class="card-title">${teamMember.Name}</h5>
-      <h6 class="card-title"><i class="fa-regular fa-mug-hot"></i>${teamMember}</h6>
+      <h5 class="card-title">${Manager.getName()}</h5>
+      <h6 class="card-title"><i class="fa-regular fa-mug-hot"></i>${Manager.getRole()}</h6>
     </div>
-  <div class="card-body">
-    <ul class="list-group">
-      <li class="list-group-item">ID: ${teamMember.id}</li>
-      <li class="list-group-item">Email: <a href="mailto:${teamMember.email}">${teamMember.email}</a></li>
-      <li class="list-group-item">Office Number: ${teamMember.mngrOfficeNum}</li>
-    </ul>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item">ID: ${Manager.getID()}</li>
+        <li class="list-group-item">Email: <a href="mailto:${Manager.getEmail()}">${Manager.getEmail()}</a></li>
+        <li class="list-group-item">Office Number: ${Manager.getOfficeNumber()}</li>
+      </ul>
+    </div>
+  </div>`;
+};
+
+const generateEngineerCard = (Engineer) =>
+  `<div class="card">
+    <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
+      <h5 class="card-title">${Engineer.getName()}</h5>
+      <h6 class="card-title"><i class="fa-regular fa-laptop-code"></i>${Engineer.getRole()}</h6>
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item">ID: ${Engineer.getID()}</li>
+        <li class="list-group-item">Email: <a href="mailto:${Engineer.getEmail()}">${Engineer.getEmail()}</a></li>
+        <li class="list-group-item" href="https://github.com/${Engineer.getGitHub()}">Github: ${Engineer.getGitHub()}</li>
+      </ul>
+    </div>
   </div>`;
 
-const generateEngineerCard = (teamMember) =>
-  `
-  <div class="card">
+const generateInternCard = (Intern) =>
+  `<div class="card">
     <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
-      <h5 class="card-title">${teamMember.Name}</h5>
-      <h6 class="card-title"><i class="fa-regular fa-laptop-code"></i>${teamMember}</h6>
+      <h5 class="card-title">${Intern.getName()}</h5>
+      <h6 class="card-title"><i class="fa-regular fa-user-graduate"></i>${Intern.getRole()}</h6>
     </div>
-  <div class="card-body">
-    <ul class="list-group">
-      <li class="list-group-item">ID: ${teamMember.id}</li>
-      <li class="list-group-item">Email: <a href="mailto:${teamMember.email}">${teamMember.email}</a></li>
-      <li class="list-group-item" href="https://github.com/${teamMember.engrGitHub}">Github: ${teamMember.engrGitHub}</li>
-    </ul>
-  </div>`;
-
-const generateInternCard = (teamMember) =>
-  `
-  <div class="card">
-    <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
-      <h5 class="card-title">${teamMember.Name}</h5>
-      <h6 class="card-title"><i class="fa-regular fa-user-graduate"></i>${teamMember}</h6>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item">ID: ${Intern.getID().id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${Intern.getEmail()}">${Intern.getEmail()}</a></li>
+        <li class="list-group-item">School: ${Intern.getSchool()}</li>
+      </ul>
     </div>
-  <div class="card-body">
-    <ul class="list-group">
-      <li class="list-group-item">ID: ${teamMember.id}</li>
-      <li class="list-group-item">Email: <a href="mailto:${teamMember.email}">${teamMember.email}</a></li>
-      <li class="list-group-item">School: ${teamMember.intrnSchool}</li>
-    </ul>
   </div>`;
 
 function generateEmployeeCards (team) {
