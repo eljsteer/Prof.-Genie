@@ -78,20 +78,21 @@ function profGenie() {
         },
         
       ]) .then((data)=>{
-        // const manager = new Manager(data.name, data.id, data.email, data.mngrOfficeNum);
-        // team.push(manager);
-
+        data.val().trim();
+        const manager = new Manager(data.name, data.id, data.email, data.mngrOfficeNum);
+        team.push(manager);
+        console.log(team)
         if(data.addEmployee === "Yes") {
           profGenie();
         } else if (data.addEmployee === "No") {
-          generateManagerCard(data);
+          generateEmployeeCards(team);
         } else{
           console.log("error")
         };
       });
   };
   
-// once done loop through array of employee objects and for each one call generatecard function for each role.
+// once done loop through array of employee objects and for each one call generateCard function for each role.
 // output of that into string of HTML (cards) and append each card onto the bottom of the one prior.
 // Store in cariable and add to big html structure in genieprofilehtml
 
@@ -133,13 +134,14 @@ function profGenie() {
         },
         
       ]) .then((data)=>{
-        // const engineer = new Engineer(data.name, data.id, data.email, data.engrgitHub);
-        // team.push(engineer);
-
+        data.val().trim();
+        const engineer = new Engineer(data.name, data.id, data.email, data.engrGitHub);
+        team.push(engineer);
+        console.log(team)
         if(data.addEmployee === "Yes") {
           profGenie();
         } else if (data.addEmployee === "No") {
-          generateEngineerCard(data);
+          generateEmployeeCards(team);
         } else{
           console.log("error")
         };
@@ -184,18 +186,21 @@ function profGenie() {
         },
         
       ]) .then((data)=>{
-        // const intern = new Intern(data.name, data.id, data.email, data.intrnSchool);
-        // team.push(intern);
-
+        data.val().trim();
+        const intern = new Intern(data.name, data.id, data.email, data.intrnSchool);
+        team.push(intern);
+        console.log(team)
         if(data.addEmployee === "Yes") {
           profGenie();
         } else if (data.addEmployee === "No") {
-          generateInternCard(data);
+          generateEmployeeCards(team);
         } else{
           console.log("error")
         };
       })
   };
+
+
 
   function writeFile () {
     // .then (data) => {

@@ -1,17 +1,73 @@
 const Employee = require("../lib/employee");
+const Manager = require("../lib/Manager");
 
-function generateEngineerCard ({role, name, id, email, engrGitHub}) {
-  // fucntion to check if any engineer from prompts and if not then do nothing
-  // const manager = new Manager(role, name, id, email, engrGitHub)
-}
-function generateManagerCard ({role, name, id, email, mngrOfficeNum}) {
-  // fucntion to check if any managers from prompts and if not then do nothing
-  // const manager = new Manager(role, name, id, email, mngrOfficeNum)
-}
-function generateInternCard ({role, name, id, email, intrnSchool}) {
-  // fucntion to check if any interns from prompts and if not then do nothing
-  // const intern = new intern(role, name, id, email, intrnSchool)
-}
+
+function generateEmployeeCards ({team}) {
+  // for (i = 0; i < team.length; i++) {
+  //   const team[i];
+  // };
+  for (const employee of team) {
+    // Employee Card 
+    let employeeCard = document.createElement("div");
+    employeeCard.classList.add("card p-2 m-2");
+
+    // Employee Card Header
+    let cardHeader = document.createElement("div");
+    cardHeader.classList.add("card-header");
+
+    let employeeName = document.createElement("h4")
+    employeeName.innerText(team[i].Name);
+    let employeeRole = document.createElement("h5")
+    if(team[i] == "manager") {
+      employeeRole.innerText(`☕ ${team[i]}`);
+    }
+    else if(team[i] == "engineer") {
+      employeeRole.innerText(`🖥️💻 ${team[i]}`);
+    }
+    else if(team[i] == "intern") {
+      employeeRole.innerText(`🎓🧑‍🎓 ${team[i]}`);
+    };
+
+    // Employee Card Details 
+    let employeeDetails = document.createElement("ul");
+    employeeDetails.classList.add("list-group");
+    let employeeListID = document.createElement("li");
+    employeeListID.classList.add("list-group-item");
+    let employeeListEmail = document.createElement("li");
+    employeeListEmail.classList.add("list-group-item");
+    let employeeListOther = document.createElement("li");
+    employeeListOther.classList.add("list-group-item");
+      //Employee ID 
+    let employeeId = team[i].id;
+    employeeListID.innerText(`ID: ${employeeId}`)
+      // Employee Email
+    let employeeEmail = team[i].email;
+    employeeListEmailLink = document.createElement("a");
+    employeelistEmailLink = document.setAttribute("href", `mailto:${employeeEmail}`);
+    employeeListEmail.append(employeeListEmailLink);
+    employeeListEmail.innerText(`Email: ${employeeEmail}`);
+
+      // Employee Other Specific Detail
+    if(team[i] == "manager") {
+      employeeListOther.innerText(`Office Number: ${team[i].mngrOfficeNum}`);
+    }
+    else if(team[i] == "engineer") {
+      employeelistOtherLink = document.createElement("a")
+      employeeListOther.append(employeelistOtherLink);
+      employeelistOtherLink = document.setAttribute("href", `https://github.com/${team[i].engrGitHub}`);
+      employeeListOther.innerText(`GitHub: ${team[i].engrGitHub}`);
+    }
+    else if(team[i] == "intern") {
+      employeeListOther.innerText(`School: ${team[i].intrnSchool}`);
+    };
+
+    employeeDetails.appendChild(employeeListID, employeeListEmail, employeeListOther)
+    cardHeader.appendChild(employeeName, employeeRole);
+    employeeCard.appendChild(cardHeader, employeeDetails);
+  }
+};
+
+
 
 const genieProfileHTML = ({name, id, email, mngrOfficeNum, engrGitHub, intrnSchool }) =>
   `<!DOCTYPE html>
@@ -23,19 +79,10 @@ const genieProfileHTML = ({name, id, email, mngrOfficeNum, engrGitHub, intrnScho
   <title>Document</title>
 </head>
 <body>
-  <div id="forecast-container" class="card my-3">
-    <h5 class="card-header" style="background-color: rgb(1, 96, 139); color: white;">5 Day Forecast:</h5>
+  <div class="container" class="card m-3">
     <div class="card-body">
       <div class="card-deck">
-        <div class="card p-2 m-2" style="background-color: rgb(221, 245, 250);">
-          <h6 class="card-title">${generateEngineerCard()}</h6>
-          <h6 class="card-title">${getRole}</h6>
-          <ul class="list-group">
-            <li class="list-group-item active">${Employee.id}</li>
-            <li class="list-group-item">${Employee.email}</li>
-            <li class="list-group-item">${getRole()}</li>
-          </ul>
-        </div>
+        ${generateEmployeeCards()}
       </div>
     </div>
   </div>
