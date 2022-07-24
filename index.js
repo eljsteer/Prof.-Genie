@@ -199,11 +199,13 @@ function profGenie() {
 
   // function to write html file from generateProfileHTML template.
   function writeFile (dataInput) {
-    fs.writeFileSync('dist/index.html', dataInput, (error) => {
+    fs.writeFileSync('dist/index.html', dataInput, (error)=> {
       if (error) {
         throw error;
       } else {
-        console.log('File created');
+        console.log("====================================>");
+        console.log('Successfully created HTML File');
+        console.log("====================================>")
       };
     })
   };
@@ -216,3 +218,4 @@ function profGenie() {
 init();
 
 module.exports = team
+

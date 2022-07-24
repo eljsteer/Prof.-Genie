@@ -79,7 +79,6 @@ const genieProfileHTML = (team) =>
   <title>Team Profile Genie</title>
 </head>
 <body>
-<body>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="text-center display-6">My Team of Heroes</h1>
