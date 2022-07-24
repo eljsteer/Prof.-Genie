@@ -38,6 +38,7 @@
 
   ## CREDITS
   * https://www.wikihow.com/Create-an-Email-Link-in-HTML
+  * https://flexiple.com/instanceof-javascript/
 
 
   ## QUESTIONS
