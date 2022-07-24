@@ -82,7 +82,7 @@ const genieProfileHTML = (team) =>
 <div class="container-fluid">
   <div class="row">
     <div id="heroCover"class="jumbotron col-12">
-      <h1 class="text-center display-6">My Team of Heroes</h1>
+      <h1 id="hero-title" class="text-center display-6">My Team of Heroes</h1>
     </div>
   </div>
 </div>
