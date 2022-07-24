@@ -6,47 +6,47 @@ const Intern = require("../lib/Intern");
 
 
 const generateManagerCard = (Manager) =>
-  `<div class="card m-3">
+  `<div class="card m-3 EMPCard">
     <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
       <h5 class="card-title">${Manager.getName()}</h5>
       <h6 class="card-title"><i class="fa-solid fa-mug-hot mr-2"></i>${Manager.getRole()}</h6>
     </div>
     <div class="card-body">
       <ul class="list-group">
-        <li class="list-group-item">ID: ${Manager.getID()}</li>
-        <li class="list-group-item">Email: <a href="mailto:${Manager.getEmail()}">${Manager.getEmail()}</a></li>
-        <li class="list-group-item">Office Number: ${Manager.getOfficeNumber()}</li>
+        <li class="list-group-item"><span>ID: </span>${Manager.getID()}</li>
+        <li class="list-group-item"><span>Email: </span><a href="mailto:${Manager.getEmail()}">${Manager.getEmail()}</a></li>
+        <li class="list-group-item"><span>Office Number: </span>${Manager.getOfficeNumber()}</li>
       </ul>
     </div>
   </div>`;
 
 
 const generateEngineerCard = (Engineer) =>
-  `<div class="card m-3">
+  `<div class="card m-3 EMPCard">
     <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
       <h5 class="card-title">${Engineer.getName()}</h5>
       <h6 class="card-title"><i class="fa-solid fa-laptop-code mr-2"></i>${Engineer.getRole()}</h6>
     </div>
     <div class="card-body">
       <ul class="list-group">
-        <li class="list-group-item">ID: ${Engineer.getID()}</li>
-        <li class="list-group-item">Email: <a href="mailto:${Engineer.getEmail()}">${Engineer.getEmail()}</a></li>
-        <li class="list-group-item">Github: <a href="https://github.com/${Engineer.getGitHub()}">${Engineer.getGitHub()}</a></li>
+        <li class="list-group-item"><span>ID: </span>${Engineer.getID()}</li>
+        <li class="list-group-item"><span>Email: </span><a href="mailto:${Engineer.getEmail()}">${Engineer.getEmail()}</a></li>
+        <li class="list-group-item"><span>Github: </span><a href="https://github.com/${Engineer.getGitHub()}">${Engineer.getGitHub()}</a></li>
       </ul>
     </div>
   </div>`;
 
 const generateInternCard = (Intern) =>
-  `<div class="card m-3">
+  `<div class="card m-3 EMPCard">
     <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
       <h5 class="card-title">${Intern.getName()}</h5>
       <h6 class="card-title"><i class="fa-solid fa-user-graduate mr-2"></i>${Intern.getRole()}</h6>
     </div>
     <div class="card-body">
       <ul class="list-group">
-        <li class="list-group-item">ID: ${Intern.getID()}</li>
-        <li class="list-group-item">Email: <a href="mailto:${Intern.getEmail()}">${Intern.getEmail()}</a></li>
-        <li class="list-group-item">School: ${Intern.getSchool()}</li>
+        <li class="list-group-item"><span>ID: </span>${Intern.getID()}</li>
+        <li class="list-group-item"><span>Email: </span><a href="mailto:${Intern.getEmail()}">${Intern.getEmail()}</a></li>
+        <li class="list-group-item"><span>School: </span>${Intern.getSchool()}</li>
       </ul>
     </div>
   </div>`;
@@ -79,14 +79,18 @@ const genieProfileHTML = (team) =>
   <title>Team Profile Genie</title>
 </head>
 <body>
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="text-center display-6">My Team of Heroes</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div id="heroCover"class="jumbotron col-12">
+      <h1 class="text-center display-6">My Team of Heroes</h1>
+    </div>
   </div>
 </div>
-  <div class="container d-flex justify-content-center w-75">
-    <div class="card-deck">
-      ${generateEmployeeCards(team)}
+  <div class="container">
+    <div class="row">
+      <div id="teamContainer" class="card-deck col-12 d-flex justify-content-center">
+        ${generateEmployeeCards(team)}
+      </div>
     </div>
   </div>
 </body>
