@@ -6,7 +6,7 @@ const Intern = require("../lib/Intern");
 
 
 const generateManagerCard = (Manager) =>
-  `<div class="card m-3 EMPCard">
+  `<div class="card m-3 empCard">
     <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
       <h5 class="card-title">${Manager.getName()}</h5>
       <h6 class="card-title"><i class="fa-solid fa-mug-hot mr-2"></i>${Manager.getRole()}</h6>
@@ -22,7 +22,7 @@ const generateManagerCard = (Manager) =>
 
 
 const generateEngineerCard = (Engineer) =>
-  `<div class="card m-3 EMPCard">
+  `<div class="card m-3 empCard">
     <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
       <h5 class="card-title">${Engineer.getName()}</h5>
       <h6 class="card-title"><i class="fa-solid fa-laptop-code mr-2"></i>${Engineer.getRole()}</h6>
@@ -37,7 +37,7 @@ const generateEngineerCard = (Engineer) =>
   </div>`;
 
 const generateInternCard = (Intern) =>
-  `<div class="card m-3 EMPCard">
+  `<div class="card m-3 empCard">
     <div class="card-header" style="background-color: rgb(1, 96, 139); color: white;">
       <h5 class="card-title">${Intern.getName()}</h5>
       <h6 class="card-title"><i class="fa-solid fa-user-graduate mr-2"></i>${Intern.getRole()}</h6>
