@@ -39,6 +39,7 @@
   ## CREDITS
   * https://www.wikihow.com/Create-an-Email-Link-in-HTML
   * https://flexiple.com/instanceof-javascript/
+  * https://nodejs.org/docs/latest-v16.x/api/fs.html#fspromiseswritefilefile-data-options
 
 
   ## QUESTIONS

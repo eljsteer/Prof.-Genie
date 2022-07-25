@@ -16,7 +16,7 @@ function validateInput(data) {
   }
 };
 
-function profGenie() {
+function addEmployees() {
   return inquirer.prompt([
     {
       type: "list",
@@ -83,7 +83,7 @@ function profGenie() {
         const manager = new Manager(data.name, data.id, data.email, data.mngrOfficeNum);
         team.push(manager);
         if(data.addEmployee === "Yes") {
-          profGenie();
+          addEmployees();
         } else if (data.addEmployee === "No") {
           let dataInput = genieProfileHTML(team);
           writeFile(dataInput);
@@ -135,7 +135,7 @@ function profGenie() {
         const engineer = new Engineer(data.name, data.id, data.email, data.engrGitHub);
         team.push(engineer);
         if(data.addEmployee === "Yes") {
-          profGenie();
+          addEmployees();
         } else if (data.addEmployee === "No") {
           let dataInput = genieProfileHTML(team);
           writeFile(dataInput);
@@ -187,7 +187,7 @@ function profGenie() {
         const intern = new Intern(data.name, data.id, data.email, data.intrnSchool);
         team.push(intern);
         if(data.addEmployee === "Yes") {
-          profGenie();
+          addEmployees();
         } else if (data.addEmployee === "No") {
           let dataInput = genieProfileHTML(team);
           writeFile(dataInput);
@@ -198,21 +198,19 @@ function profGenie() {
   };
 
   // function to write html file from generateProfileHTML template.
-  function writeFile (dataInput) {
-    fs.writeFileSync('dist/index.html', dataInput, (error)=> {
-      if (error) {
-        throw error;
-      } else {
-        console.log("====================================>");
-        console.log('Successfully created HTML File');
-        console.log("====================================>")
-      };
-    })
+  function writeFile(dataInput) {
+    fs.promises.writeFile('Output/index.html', dataInput) 
+      .then(() => {
+      console.log(">====================================>");
+      console.log("Successfully created HTML File");
+      console.log(">====================================>");
+      })
+      .catch((err) => console.error(err));
   };
 
 // function to initialise program to start prompts for user
   function init() {
-    profGenie()
+    addEmployees();
   };
 
 init();

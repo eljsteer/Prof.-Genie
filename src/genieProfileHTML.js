@@ -75,7 +75,7 @@ const genieProfileHTML = (team) =>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/f271dd3923.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet href="style.css">
+  <link rel="stylesheet" href="../dist/style.css">
   <title>Team Profile Genie</title>
 </head>
 <body>
