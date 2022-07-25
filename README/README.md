@@ -32,7 +32,7 @@
 
   ## MEDIA
   #### Screenshot of Sample Application Output
-  ![Profile Generation output Screenshot](../public/media/profGenie-Screenshot.jpg
+  [![Profile Generator Output Screenshot](../public/media/profGenie-Screenshot.jpg)
 
   ## TESTS
   * To test this application, the test files can be found in the "tests" folder. Tests are run using "Jest", see installation on how to install Jest. 
