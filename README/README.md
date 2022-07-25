@@ -15,10 +15,10 @@
   - [Questions](#Questions)
 
   ## DESCRIPTION
-  Application to hold and generate employee profiles holding basic details.
+  Application to generate employee profiles which holds thier basic information.
   
   ## INSTALLATION
-  1. Install NodeJS
+  1. Install NodeJS here: [Download NodeJS](https://nodejs.org/en/download/)
   2. To install the NPM "Inquirer" package software to run the inquirer prompts, Type `npm install inquirer@8.2.4` in the command line to install associated npm packages and node modules to be able to call prompt queries for data to populate the Employee details and html layout.
   3. To install Jest for testing, Type `npm install Jest` in the command line.
 
@@ -28,13 +28,11 @@
   [Usage Walkthrough Video](https://drive.google.com/file/d/14HeszosZ9DWsiRM-VMVC3M6rbq2m126B/view)
 
   ## Website URL
-[Click here to view website](https://eljsteer.github.io/weather-man/)
+  [Click here to view website](https://eljsteer.github.io/weather-man/)
 
   ## MEDIA
   #### Screenshot of Sample Application Output
-![Screenshot-1](../public/media/profGenie-Screenshot.jpg
-
-  #### Videos of Sample Application Output
+  ![Profile Generation output Screenshot](../public/media/profGenie-Screenshot.jpg
 
   ## TESTS
   * To test this application, the test files can be found in the "tests" folder. Tests are run using "Jest", see installation on how to install Jest. 
