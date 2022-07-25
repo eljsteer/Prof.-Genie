@@ -27,9 +27,6 @@
   * Link to Video an example of usage: 
   [Usage Walkthrough Video](https://drive.google.com/file/d/14HeszosZ9DWsiRM-VMVC3M6rbq2m126B/view)
 
-  ## Website URL
-  [Click here to view website](https://eljsteer.github.io/weather-man/)
-
   ## MEDIA
   #### Screenshot of Sample Application Output
   ![Profile Generator Output Screenshot](../public/media/profGenie-Screenshot.jpg)
