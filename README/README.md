@@ -18,23 +18,34 @@
   Application to hold and generate employee profiles holding basic details.
   
   ## INSTALLATION
-  Install the software to run the application by typing "npm install inquirer@8.2.4" to install node modules to be ablet o call prompts for data
+  1. Install NodeJS
+  2. To install the NPM "Inquirer" package software to run the inquirer prompts, Type `npm install inquirer@8.2.4` in the command line to install associated npm packages and node modules to be able to call prompt queries for data to populate the Employee details and html layout.
+  3. To install Jest for testing, Type `npm install Jest` in the command line.
 
   ## USAGE
-  after installing node software, type "node index.js" to run prompts to add employees
+  * To run this node application, type `node index.js` to run prompts to add employees
+  * Link to Video an example of usage: 
+  [Usage Walkthrough Video](https://drive.google.com/file/d/14HeszosZ9DWsiRM-VMVC3M6rbq2m126B/view)
+
+  ## Website URL
+[Click here to view website](https://eljsteer.github.io/weather-man/)
 
   ## MEDIA
+  #### Screenshot of Sample Application Output
+![Screenshot-1](../public/media/profGenie-Screenshot.jpg
 
+  #### Videos of Sample Application Output
 
   ## TESTS
-  *  Test using the test found in the _Tests_ folder. Tests are run using Jest, which can be installed by typing "npm install jest" in terminal
+  * To test this application, the test files can be found in the "tests" folder. Tests are run using "Jest", see installation on how to install Jest. 
+  * Type `npm run test` to run the tests.
+  * Link to Video of running tests: 
+  [Test Walkthrough Video](https://drive.google.com/file/d/1AVyI4kPKufYB8W0siLwizYJo8GMaK9lg/view)
+
   
   ## LICENSE
   Project developed 2022 by Jason Steer,<br />
   This application is licensed under the Apache 2.0 license.
-
-  ## CONTRIBUTORS
-  * 
 
   ## CREDITS
   * https://www.wikihow.com/Create-an-Email-Link-in-HTML

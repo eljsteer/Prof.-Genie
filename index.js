@@ -199,7 +199,7 @@ function addEmployees() {
 
   // function to write html file from generateProfileHTML template.
   function writeFile(dataInput) {
-    fs.promises.writeFile('Output/index.html', dataInput) 
+    fs.promises.writeFile('dist/index.html', dataInput) 
       .then(() => {
       console.log(">====================================>");
       console.log("Successfully created HTML File");
